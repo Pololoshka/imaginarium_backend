@@ -7,6 +7,8 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from game.models import Player
+
 
 class UserAPIView(APIView):
     permission_classes = [permissions.AllowAny]
@@ -15,6 +17,7 @@ class UserAPIView(APIView):
     def post(self, _request: Request) -> Response:
         user = User.objects.create(username=uuid.uuid4())
         token = Token.objects.create(user=user)
+        Player.objects.create(user=user)
 
         return Response(
             {

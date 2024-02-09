@@ -23,6 +23,7 @@ ruff = "*"
 pre-commit = "*"
 mypy = "*"
 django-stubs = "^4.2.7"
+pytest = "^8.0.0"
 
 [tool.mypy]
 plugins = ["mypy_django_plugin.main"]

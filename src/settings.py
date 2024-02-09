@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-ln@akv*x7i9v$q15+roxr_+7fkqcx%r@4%^_*1a=du+#%3v9#d"
+SECRET_KEY = "django-insecure-ln@akv*x7i9v$q15+roxr_+7fkqcx%r@4%^_*1a=du+#%3v9#d"  # noqa: S105
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS: list[str] = []
 
 
 # Application definition
@@ -93,7 +94,7 @@ DATABASES = {
         "NAME": "imaginarium_db",
         "USER": "user",
         "PASSWORD": "pass",
-        "HOST": "0.0.0.0",
+        "HOST": "0.0.0.0",  # noqa: S104
         "PORT": "5432",
     }
 }

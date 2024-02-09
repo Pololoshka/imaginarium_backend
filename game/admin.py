@@ -1,5 +1,7 @@
 from django.contrib import admin
 
-from . import models as m
+from game.models.color import Color
+from game.models.room import Room
 
-admin.site.register(m.Room)
+admin.site.register(Room)
+admin.site.register(Color)
