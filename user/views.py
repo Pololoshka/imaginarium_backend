@@ -15,7 +15,7 @@ class UserAPIView(APIView):
     authentication_classes: list = []
 
     def post(self, _request: Request) -> Response:
-        user = User.objects.create(username=uuid.uuid4())
+        user = User.objects.create(username=str(uuid.uuid4()))
         token = Token.objects.create(user=user)
         Player.objects.create(user=user)
 

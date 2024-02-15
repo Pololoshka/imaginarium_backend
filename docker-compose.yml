@@ -14,5 +14,21 @@ services:
     ports:
       - "${DB_HOST}:${DB_PORT}:5432"
 
+  redis:
+    image: redis:latest
+    restart: always
+    env_file:
+      - .env
+    environment:
+      REDIS_PASSWORD: $REDIS_PASSWORD
+      REDIS_PORT: $REDIS_PORT
+    volumes:
+      - redis-data:/root/redis
+      - redis-conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "${REDIS_HOST}:${REDIS_PORT}:6379"
+
 volumes:
   db-data:
+  redis-data:
+  redis-conf:
