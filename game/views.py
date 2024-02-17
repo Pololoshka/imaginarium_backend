@@ -20,5 +20,4 @@ class RoomViewset(viewsets.ViewSet):
         room = Room.custom_objects.create_(
             number_of_pawns=serializer.validated_data["number_of_pawns"]
         )
-
         return Response(RoomSerializer(room).data)

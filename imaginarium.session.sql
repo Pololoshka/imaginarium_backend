@@ -1,1 +1,1 @@
-SELECT * FROM game_room;
+SELECT * FROM game_player;

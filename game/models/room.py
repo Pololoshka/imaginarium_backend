@@ -25,7 +25,6 @@ class RoomManager(models.Manager):
         return room
 
 
-
 class Room(models.Model):
     code = models.CharField(unique=True, max_length=6, primary_key=True)
     number_of_pawns = models.PositiveSmallIntegerField()

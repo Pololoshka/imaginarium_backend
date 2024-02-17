@@ -31,7 +31,7 @@ class TokenAuthMiddleware(BaseMiddleware):
         super().__init__(inner)
 
     async def __call__(self, scope: dict, receive: Any, send: Any) -> Any:
-        token = dict(scope["headers"]).get(b"authorization", b"").decode().split(" ")[-1]
+        token = scope["query_string"].decode().split("=")[-1]
 
         user = await get_user(token) if token else None
         if not user:

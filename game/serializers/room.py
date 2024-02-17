@@ -1,5 +1,3 @@
-from uu import Error
-
 from rest_framework import serializers
 
 from game.models.room import Room
@@ -15,7 +13,14 @@ class RoomCreateSerializer(serializers.ModelSerializer):
 
 
 class RoomSerializer(serializers.ModelSerializer):
-    pawns = PawnSerializer(many=True, read_only=True)
+    pawns = PawnSerializer(many=True)
+
     class Meta:
         model = Room
-        fields = ("code", "number_of_pawns", "pawns")
+        fields = (
+            "code",
+            "number_of_pawns",
+            "pawns",
+        )
+
+    depth = 4
