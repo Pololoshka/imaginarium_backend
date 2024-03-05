@@ -17,9 +17,9 @@ class Pawn(BaseModel):
     color: str = Field(validation_alias=AliasPath("color", "name"))
     is_lead: bool
     score: int
-    room_card: list[RoomCard] = []
+    room_cards: list[RoomCard] = []
 
-    @field_validator("room_card", mode="before")
+    @field_validator("room_cards", mode="before")
     @classmethod
     def _from_queryset(cls, v: Any) -> QuerySet[m.RoomCard]:
         return v.all()  # type: ignore

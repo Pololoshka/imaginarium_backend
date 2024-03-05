@@ -15,7 +15,7 @@ class RoomManager(models.Manager):
         while True:
             code = "".join([str(i) for i in random.choices(range(10), k=6)])
             if not self.get_queryset().filter(code=code).exists():
-                room: Room = self.create(code=code, number_of_pawns=number_of_pawns)  # type: ignore
+                room: Room = self.create(code=code)  # type: ignore
                 break
 
         for color in Color.objects.all()[:number_of_pawns]:
@@ -47,7 +47,6 @@ class RoomManager(models.Manager):
 
 class Room(models.Model):
     code = models.CharField(unique=True, max_length=6, primary_key=True)
-    number_of_pawns = models.PositiveSmallIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     objects = models.Manager()

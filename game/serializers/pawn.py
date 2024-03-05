@@ -16,7 +16,7 @@ class PawnSerializer(serializers.ModelSerializer):
     color: "RelatedField[Color, str, str]" = serializers.SlugRelatedField(
         slug_field="name", read_only=True
     )
-    room_card = RoomCardSerializer(many=True)
+    room_cards = RoomCardSerializer(many=True)
 
     class Meta:
         model = Pawn
@@ -26,5 +26,5 @@ class PawnSerializer(serializers.ModelSerializer):
             "color",
             "is_lead",
             "score",
-            "room_card",
+            "room_cards",
         )

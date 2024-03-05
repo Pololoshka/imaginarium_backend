@@ -11,7 +11,6 @@ class Room(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
     code: str = Field(max_length=6, min_length=6)
-    number_of_pawns: int = Field(ge=4, le=4)
     pawns: list[Pawn]
 
     @field_validator("pawns", mode="before")

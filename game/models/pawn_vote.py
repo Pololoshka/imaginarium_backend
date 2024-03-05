@@ -3,7 +3,7 @@ from django.db import models
 
 class PawnVote(models.Model):
     pawn = models.ForeignKey("Pawn", on_delete=models.CASCADE, related_name="vote")
-    card = models.ForeignKey("RoomCard", on_delete=models.CASCADE, related_name="pawn_vote")
+    room_card = models.ForeignKey("RoomCard", on_delete=models.CASCADE, related_name="pawn_votes")
 
     objects = models.Manager()
 

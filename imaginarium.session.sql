@@ -1,1 +1,1 @@
-SELECT * FROM authtoken_token;
+SELECT * FROM rooms;

@@ -18,11 +18,11 @@ class RoomViewset(viewsets.ViewSet):
             .prefetch_related("pawns__player__user")
             .prefetch_related(
                 Prefetch(
-                    "pawns__room_card",
+                    "pawns__room_cards",
                     queryset=RoomCard.objects.filter(is_deleted=False).order_by("id"),
                 )
             )
-            .prefetch_related("pawns__room_card__card")
+            .prefetch_related("pawns__room_cards__card")
             .get(pk=pk)
         )
 
