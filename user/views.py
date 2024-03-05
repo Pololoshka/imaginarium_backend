@@ -18,8 +18,7 @@ class UserAPIView(APIView):
     def post(self, _request: Request) -> Response:
         user = User.objects.create(username=str(uuid.uuid4()))
         token = Token.objects.create(user=user)
-        player = Player.objects.create(user=user)
-        print(player)
+        _player = Player.objects.create(user=user)
 
         return Response(
             {

@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+
 import os
 from pathlib import Path
 
@@ -37,11 +38,11 @@ REDIS_HOST = os.environ["REDIS_HOST"]
 REDIS_PORT = os.environ["REDIS_PORT"]
 
 # Database
-DB_NAME=os.environ["DB_NAME"]
-DB_USER=os.environ["DB_USER"]
-DB_PASSWORD=os.environ["DB_PASSWORD"]
-DB_HOST=os.environ["DB_HOST"]
-DB_PORT=os.environ["DB_PORT"]
+DB_NAME = os.environ["DB_NAME"]
+DB_USER = os.environ["DB_USER"]
+DB_PASSWORD = os.environ["DB_PASSWORD"]
+DB_HOST = os.environ["DB_HOST"]
+DB_PORT = os.environ["DB_PORT"]
 
 # Application definition
 
@@ -124,7 +125,6 @@ DATABASES = {
         "PORT": DB_PORT,
     }
 }
-
 
 
 # Password validation

@@ -13,11 +13,15 @@ from channels.routing import ProtocolTypeRouter, URLRouter
 from django.core.asgi import get_asgi_application
 
 import game.routing
-from game.middlewares import RoomMiddleware, TokenAuthMiddleware
+from game.middlewares import RoomExistsMiddleware, TokenAuthMiddleware
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "src.settings")
 
-application = ProtocolTypeRouter({
-    "http": get_asgi_application(),
-    "websocket": RoomMiddleware(TokenAuthMiddleware(URLRouter(game.routing.websocket_urlpatterns)))
-})
+application = ProtocolTypeRouter(
+    {
+        "http": get_asgi_application(),
+        "websocket": RoomExistsMiddleware(
+            TokenAuthMiddleware(URLRouter(game.routing.websocket_urlpatterns))
+        ),
+    }
+)

@@ -23,4 +23,4 @@ class RoomSerializer(serializers.ModelSerializer):
             "pawns",
         )
 
-    depth = 4
+    depth = 5

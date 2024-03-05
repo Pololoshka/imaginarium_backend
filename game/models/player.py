@@ -7,3 +7,6 @@ class Player(models.Model):
     name = models.CharField(max_length=20, default="Anonymous")
 
     objects = models.Manager()
+
+    class Meta:
+        db_table = "players"

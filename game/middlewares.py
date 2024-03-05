@@ -42,7 +42,7 @@ class TokenAuthMiddleware(BaseMiddleware):
         return await super().__call__(scope, receive, send)
 
 
-class RoomMiddleware(BaseMiddleware):
+class RoomExistsMiddleware(BaseMiddleware):
     def __init__(self, inner: Any):
         super().__init__(inner)
 

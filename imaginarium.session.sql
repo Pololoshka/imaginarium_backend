@@ -1,1 +1,1 @@
-SELECT * FROM game_player;
+SELECT * FROM authtoken_token;
